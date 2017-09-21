@@ -31,11 +31,19 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+	# To include the app in the project, we need to reference to its config class.
+	'polls.apps.PollsConfig',
+	# Admin site.
     'django.contrib.admin',
+	# An auth system.
     'django.contrib.auth',
+	# A framework for content types.
     'django.contrib.contenttypes',
+	# A framework for sessions.
     'django.contrib.sessions',
+	# A framework for messaging.
     'django.contrib.messages',
+	# A framework for managing static files.
     'django.contrib.staticfiles',
 ]
 
@@ -71,6 +79,8 @@ WSGI_APPLICATION = 'PollApplication.wsgi.application'
 
 
 # Database
+# By default, the configuration uses SQLite (included in Python).
+# May want to use a more scalable database like PostgreSQL, to avoid database-switching.
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
@@ -105,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
