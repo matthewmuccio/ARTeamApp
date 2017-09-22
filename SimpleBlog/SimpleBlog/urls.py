@@ -13,15 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import include, url
+from django.conf.urls import url
 from django.contrib import admin
 
 urlpatterns = [
-    # include() allows referencing other URLconfs.
-    # Whenever Django encounters include(), it removes whatever part of the URL
-    # matched up to that point and sends the remaining string to the included
-    # URLconf for further processing.
-    # The idea behind it is to make it easy to plug-and-play URLs.
-    #url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
 ]
