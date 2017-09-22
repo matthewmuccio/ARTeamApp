@@ -1,4 +1,4 @@
-"""SimpleBlog URL Configuration
+"""SimpleBlogProject URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -16,6 +16,18 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+# Importing models
+from SimpleBlogApp.models import Tag, MyBlog
+
+# Generic views
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+
+# Makes model visible in admin system.
+admin.autodiscover()
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', ListView.as_view(model = MyBlog, template_name = 'blog_list.html'), name='blog_list'),
+    url(r'^details/(?P<pk>[0-9]+)/', DetailView.as_view(model = MyBlog, template_name = 'blog_details.html'), name='blog_details'),
 ]
